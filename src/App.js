@@ -70,7 +70,6 @@ function App() {
 }
 
   const handleFileUpload = (event) => {
-    event.preventDefault();
     setFile(event.target.files[0]);
   }
 
@@ -120,9 +119,6 @@ function App() {
     for(let j=first;j<=second;j++) string += data[j] + " ";
     return string
   }
-
-  console.log("Result Labels", logFiles.labels)
-  console.log("Result of data", logFiles.datasets.data)
 
   return (
     <div style={mystyle}>
