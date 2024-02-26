@@ -13,11 +13,7 @@ app.get('/api-data', (_, res) => {
           
           function generateData(first, second) {
              let string = "" 
-
-             for(let j=first;j<=second;j++) {
-                 string += sortData[j] + " ";
-             }
-
+             for(let j=first;j<=second;j++) string += sortData[j] + " ";
              return string
           }
 
@@ -36,11 +32,10 @@ app.get('/api-data', (_, res) => {
              http_user_agent:sortData[11]+" "+generateData(12, sortData.length-2),
              http_x_forwarded_for:sortData[sortData.length-1] ? sortData[sortData.length-1] : "-",
           }
-
           logData.push(objectJSON);
         }
+        
         const filePath = "logfiles.json"
-
         fs.writeFile(filePath, JSON.stringify(logData, null, 2), (err) => {
             if (err) {
               console.error('Error writing JSON file:', err);
